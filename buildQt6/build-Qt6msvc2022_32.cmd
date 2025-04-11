@@ -10,6 +10,9 @@ SET MSVC_VERSION=msvc2022_32
 :: 设置MSVC2022环境
 CALL "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x86
 
+:: 设置jom和Perl
+SET PATH=D:\a\buildQt\jom;D:\a\buildQt\Strawberry\c\bin;D:\a\buildQt\Strawberry\perl\site\bin;D:\a\buildQt\Strawberry\perl\bin;%PATH%
+
 :: 设置Qt文件夹路径
 SET QT_PATH=D:\a\buildQt\Qt
 
@@ -17,6 +20,9 @@ SET QT_PATH=D:\a\buildQt\Qt
 
 :: 设置Qt源代码目录
 SET SRC_QT="%QT_PATH%\%QT_VERSION%\qt-everywhere-src-%QT_VERSION%"
+
+:: 补充设置qtbase\bin和gnuwin32\bin
+SET PATH=%SRC_QT%\qtbase\bin;%SRC_QT%\gnuwin32\bin;%PATH%
 
 :: 设置安装文件夹目录
 SET INSTALL_DIR="%QT_PATH%\%QT_VERSION%-static\%MSVC_VERSION%"
