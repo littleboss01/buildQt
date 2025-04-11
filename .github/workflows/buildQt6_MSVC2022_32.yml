@@ -46,6 +46,8 @@ jobs:
     # 安装vsdevenv
     - name: Setup vsdevenv
       uses: seanmiddleditch/gha-setup-vsdevenv@master
+      with:
+        arch: x86  # 指定使用32位架构
 
     # 构建Qt
     - name: Build Qt
