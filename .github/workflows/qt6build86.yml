@@ -36,7 +36,7 @@ jobs:
       run: |
         # Create archive of the pre-built Qt binaries
         7z a qt6_660_static_86.zip ..\Qt6_binaries
-    - uses: actions/upload-artifact@v1
+    - uses: actions/upload-artifact@v4
       with:
         name: qt6_660_static_86
         path: qt6_660_static_86.zip
