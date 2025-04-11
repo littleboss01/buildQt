@@ -23,6 +23,19 @@ jobs:
       with:
         python-version: '3.13'
         architecture: 'x64'
+    # 安装 Perl    
+    - name: Setup Perl
+      run: |
+        cd ..  #Directory: D:\a\buildQt
+        curl -L -o strawberry-perl-64bit-portable.zip https://github.com/StrawberryPerl/Perl-Dist-Strawberry/releases/download/SP_54001_64bit_UCRT/strawberry-perl-5.40.0.1-64bit-portable.zip
+        unzip -q strawberry-perl-64bit-portable.zip -d ./Strawberry
+
+    # 安装 jom
+    - name: Setup jom
+      run: |
+        cd ..  #Directory: D:\a\buildQt
+        curl -L -o jom.zip  http://download.qt.io/official_releases/jom/jom.zip
+        unzip -q jom.zip -d ./jom
 
     # 安装msvc
     - name: Add MSBuild to PATH
