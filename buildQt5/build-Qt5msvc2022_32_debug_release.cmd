@@ -36,7 +36,7 @@ rmdir /s /q "%BUILD_DIR%"
 mkdir "%BUILD_DIR%" && cd /d "%BUILD_DIR%"
 
 :: configure
-call %SRC_QT%\configure.bat -debug-and-release -release -prefix %INSTALL_DIR% -nomake examples -nomake tests  -opensource -confirm-license -qt-libpng -qt-libjpeg -qt-zlib -qt-pcre -qt-freetype -schannel -platform win32-msvc
+call %SRC_QT%\configure.bat -debug-and-release  -prefix %INSTALL_DIR% -nomake examples -nomake tests  -opensource -confirm-license -qt-libpng -qt-libjpeg -qt-zlib -qt-pcre -qt-freetype -schannel -platform win32-msvc
 
 :: 编译、安装
 jom
