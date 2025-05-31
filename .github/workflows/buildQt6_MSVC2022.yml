@@ -4,8 +4,8 @@ on: workflow_dispatch
 #on: [push, pull_request]
 
 env:
-  QT_VERSION: 6.9.0
-  QT_VERSION2: 6.9
+  QT_VERSION: 6.8.0
+  QT_VERSION2: 6.8
   FILE_NAME: static-Release_msvc2022_64
 
 jobs:
@@ -55,7 +55,12 @@ jobs:
         # 下载源代码并解压，源代码目录D:\a\buildQt\Qt\${{env.QT_VERSION}}\XXX
         curl -L -o qt-everywhere-src.zip https://download.qt.io/official_releases/qt/${{env.QT_VERSION2}}/${{env.QT_VERSION}}/single/qt-everywhere-src-${{env.QT_VERSION}}.zip
         unzip -q qt-everywhere-src.zip -d ./${{env.QT_VERSION}}
+        # 进入源代码目录
+        cd ${{env.QT_SRC_DIR}}
 
+        # 初始化并更新子模块（重点添加这一步）
+        echo "Initializing and updating submodules..."
+        git submodule update --init --recursive --depth 1 qtwebengine
         # 调用编译脚本
         cmd.exe /c "call `"D:\a\buildQt\buildQt\buildQt6\build-Qt6msvc2022_64.cmd`""
 
