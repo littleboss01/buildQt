@@ -56,7 +56,7 @@ jobs:
         curl -L -o qt-everywhere-src.zip https://download.qt.io/official_releases/qt/${{env.QT_VERSION2}}/${{env.QT_VERSION}}/single/qt-everywhere-src-${{env.QT_VERSION}}.zip
         unzip -q qt-everywhere-src.zip -d ./${{env.QT_VERSION}}
         # 进入源代码目录
-        cd ${{env.QT_SRC_DIR}}
+        cd ${{env.QT_VERSION}}
 
         # 初始化并更新子模块（重点添加这一步）
         echo "Initializing and updating submodules..."
